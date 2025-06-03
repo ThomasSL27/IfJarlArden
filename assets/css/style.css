@@ -3,6 +3,8 @@
 * {
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 body {
@@ -15,6 +17,8 @@ body {
     --tritiary-color: #55ae55;
     --text-color: #000000;
     --buttonText-color: #ffffff;
+    --mobileNavigation-color: #ffffff;
+    --desktopNavigation-color: #d24437;
     /* spacers */
     --tnSpacer: 1rem;
     --smSpacer: 3rem;
