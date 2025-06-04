@@ -38,30 +38,33 @@ fetch(domain)
 const bestyrelsen = document.querySelector('.bestyrelsen');
 // Kig igennem hver oplæg i data-arrayet som findes i konsollen
 data.forEach(post => {
-  // Hent ACF-felterne fra indlæget / forblive tomt hvis det ikke findes
+  // Hent ACF-felterne fra indlæget / forblive tomt hvis det ikke findes. || betyder hvis ikke den kan finde / eller
   const acf = post.acf || {};
 // Tjekker om "udvalg" findes og er lig med "bestyrelse" i acf data array
-  if (acf.udvalg === "bestyrelse") {
-    // laver nyt div element til bestyrelsen
-    const bestyrelseDiv = document.createElement('div');
-    bestyrelseDiv.classList.add('bestyreleMedlem');
-    // Tilføjer navn + titel til HTML
-    bestyrelseDiv.innerHTML = `
-      <p><strong>Navn:</strong> ${acf.Navn || 'Kommer snart'}</p>
-      <p><strong>Rolle:</strong> ${acf.titel || 'Kommer snart'}</p>
-      <p><strong>Email:</strong> ${acf.Email || 'Kommer snart'}</p>
-      <p><strong>Tlf:</strong> ${acf.tlf || 'Kommer snart'}</p>
-    `;
-    // Hvis der er et billede i acf-data array, så tilføj billede
-    if (acf.billede?.url) {
+if (acf.udvalg === "bestyrelse") {
+  const bestyrelseDiv = document.createElement('div');
+  bestyrelseDiv.classList.add('bestyreleMedlem');
+
+  // Tilføj billede hvis der findes et i acf data array
+  if (acf.billede?.url) {
     const img = document.createElement('img');
     img.src = acf.billede.url;
-    img.alt = acf.billede.alt || 'Portræt';
+    img.alt = acf.billede.alt || 'Billede af bestyrelsesmedlem';
+    // Smid billedet ind nu
     bestyrelseDiv.appendChild(img);
   }
-  // Tilføj nu det hele til bestyrelses containeren
-    bestyrelsen.appendChild(bestyrelseDiv);
-  }
+
+  // Så tilføj tekst bagefter og her er lavet så, at hvis den ikke kan finde en af acf'erne eller de ikke findes, så vises "Kommer snart"
+  bestyrelseDiv.innerHTML += `
+    <p><strong>Navn:</strong> ${acf.Navn || 'Kommer snart'}</p>
+    <p><strong>Rolle:</strong> ${acf.titel || 'Kommer snart'}</p>
+    <p><strong>Email:</strong> ${acf.Email || 'Kommer snart'}</p>
+    <p><strong>Tlf:</strong> ${acf.tlf || 'Kommer snart'}</p>
+  `;
+
+  bestyrelsen.appendChild(bestyrelseDiv);
+}
+
 })
 // Fejlkode hvis noget går galt ift. hentning af data
 })
