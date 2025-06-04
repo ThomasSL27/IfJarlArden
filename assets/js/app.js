@@ -8,7 +8,7 @@ const close = document.getElementById('close');
 // Definere en function som kan open og lukke
 function burgerMenu(open) {
     // Hvis "open" === true så tilføjer den klassen toggle.
-    // Hvis den er lukket fjerner den klassen og tilføjer anden klasse
+    // Hvis den er lukket fjerner den klassen og tilføjer menu.close
   menu.classList.toggle('open', open);;
 }
 // Når burgermenuen trykket på, kald så toggleMenu(true)

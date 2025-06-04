@@ -19,6 +19,7 @@ body {
     --buttonText-color: #ffffff;
     --mobileNavigation-color: #ffffff;
     --desktopNavigation-color: #d24437;
+    --blue-button: #3DADFF;
     /* spacers */
     --tnSpacer: 1rem;
     --smSpacer: 3rem;
@@ -33,9 +34,12 @@ body {
 
 h1{
   font-size: var(--h1-font-size);
+  margin: 0;
 }
 h2{
   font-size: var(--h2-font-size);
+  margin-bottom: 0;
+  margin-top: var(--mdSpacer);
 }
 /* Burgermenu */
 .burger, .close {
@@ -136,4 +140,14 @@ h2{
   }
   .articleImgMobil{
     width: 100%;
+    margin-top: var(--tnSpacer);
+  }
+
+  .knap1{
+    background-color: var(--blue-button);
+    color: white;
+    font-size: var(--lgText-font-size);
+    padding: var(--tnSpacer);
+    border-radius: 1rem;
+    text-decoration: none;
   }
