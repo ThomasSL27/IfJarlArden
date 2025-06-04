@@ -168,7 +168,10 @@ h2{
     justify-content: space-between;
   }
   summary {
-    list-style: none; 
+    list-style: none;
+    cursor: pointer;
+    color: var(--secondary-color); 
+
   }
   details>summary::-webkit-details-marker {
       display: none;
@@ -180,7 +183,5 @@ h2{
 
   details[open]>summary::after {
       content: '▼';
-  }
-
-  details[open]>summary {
+      max-height: fit-content;
   }
