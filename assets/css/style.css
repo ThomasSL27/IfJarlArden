@@ -154,6 +154,16 @@ h2{
     text-decoration: none;
   }
 
+  .knap1 a{
+    background-color: var(--blue-button);
+    color: white;
+    font-size: var(--lgText-font-size);
+    padding: var(--tnSpacer);
+    border-radius: 1rem;
+    text-decoration: none;
+  }
+
+
   /* kontakt side details styling */
   .kontakt{
     padding: var(--tnSpacer);
@@ -184,4 +194,16 @@ h2{
   details[open]>summary::after {
       content: '▼';
       max-height: fit-content;
+  }
+
+  /* Armwrestling Styling */
+
+  #AWheader {
+    text-align: center;
+    padding-top: var(--smSpacer);
+  }
+
+  #HeroAW {
+    width: 80vW;
+    justify-content: center;
   }
