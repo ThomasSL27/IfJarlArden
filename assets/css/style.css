@@ -164,4 +164,23 @@ h2{
   .kontakt summary{
     color: var(--secondary-color);
     background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+  }
+  summary {
+    list-style: none; 
+  }
+  details>summary::-webkit-details-marker {
+      display: none;
+  }
+
+  details>summary::after {
+      content: '▶';
+  }
+
+  details[open]>summary::after {
+      content: '▼';
+  }
+
+  details[open]>summary {
   }
