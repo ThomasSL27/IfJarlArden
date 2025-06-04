@@ -47,8 +47,10 @@ data.forEach(post => {
     bestyrelseDiv.classList.add('bestyreleMedlem');
     // Tilføjer navn + titel til HTML
     bestyrelseDiv.innerHTML = `
-      <p><strong>Navn:</strong> ${acf.Navn || 'Ukendt'}</p>
-      <p><strong>Rolle:</strong> ${acf.titel || 'Ikke angivet'}</p>
+      <p><strong>Navn:</strong> ${acf.Navn || 'Kommer snart'}</p>
+      <p><strong>Rolle:</strong> ${acf.titel || 'Kommer snart'}</p>
+      <p><strong>Email:</strong> ${acf.Email || 'Kommer snart'}</p>
+      <p><strong>Tlf:</strong> ${acf.tlf || 'Kommer snart'}</p>
     `;
     // Hvis der er et billede i acf-data array, så tilføj billede
     if (acf.billede?.url) {
