@@ -206,3 +206,18 @@ h2{
     width: 80vW;
     justify-content: center;
   }
+
+  /* footer styling */
+  footer p, footer a, footer section, footer h2, footer img, footer i {
+    background-color: var(--primary-color);
+  }
+  footer h2, footer p, footer i {
+    color: var(--secondary-color);
+  }
+  footer i{
+    font-size: 1.5rem; 
+    margin: var(--tnSpacer);
+  }
+  footer{
+    display: flex;
+  }
