@@ -220,4 +220,16 @@ h2{
   }
   footer{
     display: flex;
+    
   }
+  .sponsorer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: var(--smSpacer);
+  }
+.kontaktinfo{
+    padding: var(--tnSpacer);
+}
