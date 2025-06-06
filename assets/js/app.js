@@ -25,6 +25,8 @@ close.addEventListener('click', () => burgerMenu(false));
 // Wordpress API
 // 
 
+// Udvalg til kontakt
+
 // Konstatere "domain" som api linket. Pr. default henter den kun 10, så tilføj ?_embed&acf_format=standard&per_page=100 til at sikre den henter ALT.
 const domain = "https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts?_embed&acf_format=standard&per_page=100";
 const getRealImageUrls = "&acf_format=standard";
@@ -65,10 +67,34 @@ if (acf.udvalg === "bestyrelse") {
   bestyrelsen.appendChild(bestyrelseDiv);
 }
 
+const svomning = document.querySelector('.svomning');
+
+data.forEach(post => {
+  const acf = post.acf || {};
+
+  if (acf.udvalg === "svømning") {
+    if (acf.billede?.url) {
+      const img = document.createElement('img');
+      img.src = acf.billede.url;
+      img.alt = acf.billede.alt || 'Billede af svømmeudvalg';
+      svomning.appendChild(img);
+    }
+
+    svomning.innerHTML += `
+      <p><strong>Navn:</strong> ${acf.Navn || 'Kommer snart'}</p>
+      <p><strong>Rolle:</strong> ${acf.titel || 'Kommer snart'}</p>
+      <p><strong>Email:</strong> ${acf.Email || 'Kommer snart'}</p>
+      <p><strong>Tlf:</strong> ${acf.tlf || 'Kommer snart'}</p>
+    `;
+  }
+});
+
+
 })
 // Fejlkode hvis noget går galt ift. hentning af data
 })
 .catch(error => {
   console.error('Error', error);
 });
+
 
