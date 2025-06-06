@@ -94,6 +94,7 @@ h2{
   header{
     display: flex;
     align-items: center;
+    margin-bottom: var(--mdSpacer);
   }
   header img{
     width: 4rem;
@@ -120,9 +121,13 @@ h2{
   }
   .sectionMobil p {
     font-size: var(--smTect-font-size);
+    margin-left: var(--smSpacer);
+    margin-right: var(--smSpacer);
   }
   .sectionMobil h2 {
     font-size: var(--h2-font-size);
+    display: flex;
+    justify-content:center;
   }
 
   .articleMobil{
@@ -152,6 +157,9 @@ h2{
     padding: var(--tnSpacer);
     border-radius: 1rem;
     text-decoration: none;
+    width: var(--lgSpacer);
+    display: flex;
+    justify-content: center;
   }
 
   .knap1 a{
@@ -202,7 +210,7 @@ h2{
     padding-top: var(--smSpacer);
   }
 
-  #HeroAW {
+  .HeroAW {
     width: 80vW;
     justify-content: center;
   }
@@ -219,6 +227,7 @@ h2{
     margin: var(--tnSpacer);
   }
   footer{
+    margin-top: var(--mdSpacer);
     display: flex;
     
   }
@@ -230,6 +239,6 @@ h2{
     width: 100%;
     gap: var(--smSpacer);
   }
-.kontaktinfo{
+.footerinfo{
     padding: var(--tnSpacer);
 }
