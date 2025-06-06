@@ -45,7 +45,6 @@ data.forEach(post => {
 // Tjekker om "udvalg" findes og er lig med "bestyrelse" i acf data array
 if (acf.udvalg === "bestyrelse") {
   const bestyrelseDiv = document.createElement('div');
-  bestyrelseDiv.classList.add('bestyreleMedlem');
 
   // Tilføj billede hvis der findes et i acf data array
   if (acf.billede?.url) {
@@ -96,5 +95,35 @@ data.forEach(post => {
 .catch(error => {
   console.error('Error', error);
 });
+
+// Hold
+const hold = document.querySelector('.hold');
+const sportToShow = ["Svømning", "Armwrestling", "Løb"];
+
+fetch(domain)
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(post => {
+      const acf = post.acf || {};
+      if (acf.sport && sportToShow.includes(acf.sport)) {
+        const holdDiv = document.createElement('div');
+        holdDiv.classList.add('holdcard')
+        holdDiv.innerHTML = `
+          <p><strong>${acf.titel || 'Kommer snart'}</strong></p>
+          <p>${acf.pris || 'Kommer snart'}</p>
+          <p>${acf.alder || 'Kommer snart'}</p>
+        `;
+
+        hold.appendChild(holdDiv);
+      }
+    });
+  })
+  .catch(error => {
+    console.error("Fejl ved hentning af data:", error);
+    hold.innerHTML = "<p>Kunne ikke hente hold-data.</p>";
+  });
+
+
+
 
 
