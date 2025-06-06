@@ -94,6 +94,7 @@ h2{
   header{
     display: flex;
     align-items: center;
+    margin-bottom: var(--mdSpacer);
   }
   header img{
     width: 4rem;
@@ -226,6 +227,7 @@ h2{
     margin: var(--tnSpacer);
   }
   footer{
+    margin-top: var(--mdSpacer);
     display: flex;
     
   }
@@ -237,6 +239,6 @@ h2{
     width: 100%;
     gap: var(--smSpacer);
   }
-.kontaktinfo{
+.footerinfo{
     padding: var(--tnSpacer);
 }
