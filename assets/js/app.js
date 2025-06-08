@@ -123,6 +123,39 @@ fetch(domain)
     hold.innerHTML = "<p>Kunne ikke hente hold-data.</p>";
   });
 
+// Stævner
+const staevner = document.querySelector('.staevner');
+const sportstaevner = ["Svømmestævner", "Armwrestlingstævner", "Løbestævner"];
+
+fetch(domain)
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(post => {
+      const acf = post.acf || {};
+
+      // Only render stævner for known sports
+      if (sportstaevner.includes(acf.sportstaevne)) {
+        const staevneDiv = document.createElement('div');
+        staevneDiv.classList.add('staevnecard');
+
+        staevneDiv.innerHTML = `
+        <p><strong>${acf.titel || 'Kommer snart'}</strong></p>
+          <p><strong>Sport:</strong> ${acf.sportstaevne || 'Kommer snart'}</p>
+          <p><strong>Pris:</strong> ${acf.pris || 'Kommer snart'}</p>
+          <p><strong>Alder:</strong> ${acf.alder || 'Kommer snart'}</p>
+        `;
+
+        staevner.appendChild(staevneDiv);
+      }
+    });
+  })
+  .catch(error => {
+    console.error("Fejl ved hentning af data:", error);
+    staevner.innerHTML = "<p>Kunne ikke hente stævne-data.</p>";
+  });
+
+
+
 
 
 
