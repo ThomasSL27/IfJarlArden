@@ -250,29 +250,11 @@ h2{
   position: relative;
   margin-bottom: var(--lgSpacer);
   background-color: var(--primary-color);
+  border-radius: 1rem;
+  margin: 1rem;
 }
 .holdcard p{
   background-color: var(--primary-color);
-}
-.modal {
-  display: none;
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-}
-.modal-content {
-  background-color: var(--primary-color);
-  margin: 10% auto;     
-  padding: 1rem;
-  width: 80%; 
-}
-
-.close {
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
+  color: white;
+  border-radius: 1rem;
 }
