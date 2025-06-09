@@ -145,7 +145,7 @@ h2{
     font-size: var(--h2-font-size);
   }
   .articleImgMobil{
-    width: 100%;
+    width: 350px;
     height: 80%;
     margin-top: var(--tnSpacer);
   }
