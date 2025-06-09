@@ -76,16 +76,20 @@ h2{
     list-style: none;
     padding: 0;
     background-color: var(--primary-color);
+    margin: 0;
   }
   .menu ul li {
     background-color: var(--primary-color);
-    margin: 20px 0;
+    margin: 1rem 0;
   }
   .menu ul li a {
     background-color: var(--primary-color);
     text-decoration: none;
     color: var(--mobileNavigation-color);
     font-size: var(--lgText-font-size);
+  }
+  .menu hr{
+    margin: 2px;
   }
   .burgermenu svg{
     background-color: transparent;
