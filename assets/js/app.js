@@ -27,74 +27,64 @@ close.addEventListener('click', () => burgerMenu(false));
 
 // Udvalg til kontakt
 
-// Konstatere "domain" som api linket. Pr. default henter den kun 10, så tilføj ?_embed&acf_format=standard&per_page=100 til at sikre den henter ALT.
+// Definerer vores API enpoint som "domain"
+// Inkludere billeder med (_embed) og formatere acf-felterne (acf_format=standard)
 const domain = "https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts?_embed&acf_format=standard&per_page=100";
-const getRealImageUrls = "&acf_format=standard";
-// hent nu domain ned med fetch
+// Henter data fra det definerede API-endepunkt. Fetch bruges til at hente data fra ekstern server
 fetch(domain)
-// Når den har fetched, konverteres det i Json format som kan læses i konsollen
-.then(response => response.json())
-.then (data =>{
-  console.log(data);
-// Find HTML element med klassen "bestyrelsen" hvor vi vil indsætte dataen
-const bestyrelsen = document.querySelector('.bestyrelsen');
-// Kig igennem hver oplæg i data-arrayet som findes i konsollen
-data.forEach(post => {
-  // Hent ACF-felterne fra indlæget / forblive tomt hvis det ikke findes. || betyder hvis ikke den kan finde / eller
-  const acf = post.acf || {};
-// Tjekker om "udvalg" findes og er lig med "bestyrelse" i acf data array
-if (acf.udvalg === "bestyrelse") {
-  const bestyrelseDiv = document.createElement('div');
+// Når data bliver hentet, så konverteres det til JSON, så vi kan arbejde med det som JS objekter. Then bruges til at håndtere der som sker efter noget bliver hentet
+  .then(response => response.json())
+  .then(data => {
+    // Logger det hele i konsollen
+    console.log(data);
+    // Definerer en funktion som viser medlemmer baseret på deres udvalg
+    // Funktion der håndterer indsættelse af medlemmer i den korrekte div
+    // udvalgNavn er fx "bestyrelse" og containerSelector fx ".bestyrelsen"
+    function renderUdvalg(udvalgNavn, containerSelector) {
+      // Finder HTML containeren i DOM'en hvor det indsættes
+      const container = document.querySelector(containerSelector);
+      // Alle indlæg i det hentede data array køres i gennem
+      data.forEach(post => {
+        // tager fat i vores ACF felter for hvert indlæg og hvis ikke ACF findes, bliver det et tomt objekt med ||
+        const acf = post.acf || {};
+        // Hvis der findes et billede i ACF felterne oprettes et img
+        if (acf.udvalg === udvalgNavn) {
+          const memberDiv = document.createElement('div');
 
-  // Tilføj billede hvis der findes et i acf data array
-  if (acf.billede?.url) {
-    const img = document.createElement('img');
-    img.src = acf.billede.url;
-    img.alt = acf.billede.alt || 'Billede af bestyrelsesmedlem';
-    // Smid billedet ind nu
-    bestyrelseDiv.appendChild(img);
-  }
-
-  // Så tilføj tekst bagefter og her er lavet så, at hvis den ikke kan finde en af acf'erne eller de ikke findes, så vises "Kommer snart"
-  bestyrelseDiv.innerHTML += `
-    <p><strong>Navn:</strong> ${acf.Navn || 'Kommer snart'}</p>
-    <p><strong>Rolle:</strong> ${acf.titel || 'Kommer snart'}</p>
-    <p><strong>Email:</strong> ${acf.Email || 'Kommer snart'}</p>
-    <p><strong>Tlf:</strong> ${acf.tlf || 'Kommer snart'}</p>
-  `;
-
-  bestyrelsen.appendChild(bestyrelseDiv);
-}
-
-const svomning = document.querySelector('.svomning');
-
-data.forEach(post => {
-  const acf = post.acf || {};
-
-  if (acf.udvalg === "svømning") {
-    if (acf.billede?.url) {
-      const img = document.createElement('img');
-      img.src = acf.billede.url;
-      img.alt = acf.billede.alt || 'Billede af svømmeudvalg';
-      svomning.appendChild(img);
+          if (acf.billede?.url) {
+            // opretter billede element
+            const img = document.createElement('img');
+            // sætter billedets kilde til den rigtige URL
+            img.src = acf.billede.url;
+            // Alt teksten vises og hvis der ingen alt tekst er, så bliver det til "Billede af (deres navn)""
+            img.alt = acf.billede.alt || `Billede af ${udvalgNavn}`;
+            // Tilføjer billedet til diven
+            memberDiv.appendChild(img);
+          }
+          // Tilføjer HTML elementer med navn, titel, email og tlf
+          memberDiv.innerHTML += `
+            <p><strong>Navn:</strong> ${acf.Navn || 'Kommer snart'}</p>
+            <p><strong>Rolle:</strong> ${acf.titel || 'Kommer snart'}</p>
+            <p><strong>Email:</strong> ${acf.Email || 'Kommer snart'}</p>
+            <p><strong>Tlf:</strong> ${acf.tlf || 'Kommer snart'}</p>
+          `;
+          // tilføjer hele medlems diven til containeren i HTML
+          container.appendChild(memberDiv);
+        }
+      });
     }
 
-    svomning.innerHTML += `
-      <p><strong>Navn:</strong> ${acf.Navn || 'Kommer snart'}</p>
-      <p><strong>Rolle:</strong> ${acf.titel || 'Kommer snart'}</p>
-      <p><strong>Email:</strong> ${acf.Email || 'Kommer snart'}</p>
-      <p><strong>Tlf:</strong> ${acf.tlf || 'Kommer snart'}</p>
-    `;
-  }
-});
+    // Kalder funktionen for hvert udvalg med den tilsvarende class i HTML
+    renderUdvalg("bestyrelse", ".bestyrelsen");
+    renderUdvalg("svømning", ".svomning");
+    renderUdvalg("løb", ".lob");
+    renderUdvalg("armwrestling", ".armwrestling");
+  })
+  // fejlkode hvis data ikke kan hentes
+  .catch(error => {
+    console.error('Error', error);
+  });
 
-
-})
-// Fejlkode hvis noget går galt ift. hentning af data
-})
-.catch(error => {
-  console.error('Error', error);
-});
 
 
 // Hold
