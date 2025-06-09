@@ -137,8 +137,8 @@ function renderHold(valgtSport) {
       // Indsæt HTML indhold i div'en (uden modal-relateret kode)
       holdDiv.innerHTML = `
         <h3>${acf.titel || 'Kommer snart'}</h3>
-        <p>${acf.pris || 'Kommer snart'}</p>
-        <p>${acf.alder || 'Kommer snart'}</p>
+        <p>Pris: ${acf.pris || 'Kommer snart'}</p>
+        <p>Alder: ${acf.alder || 'Kommer snart'}</p>
         <p>${acf.information || 'Ingen beskrivelse'}</p>
       `;
       // Tilføj diven til .hold
