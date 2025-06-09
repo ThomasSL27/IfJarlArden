@@ -149,6 +149,10 @@ h2{
     height: 80%;
     margin-top: var(--tnSpacer);
   }
+  .videoMobil{
+    width: 350px;
+    height: auto;
+  }
 
   .knap1{
     background-color: var(--blue-button);
