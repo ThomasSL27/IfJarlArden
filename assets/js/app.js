@@ -99,68 +99,83 @@ data.forEach(post => {
 
 // Hold
 const hold = document.querySelector('.hold');
-const sportToShow = ["Svømning", "Armwrestling", "Løb"];
+const sportFilter = document.getElementById('sport-filter');
+let allPosts = []; // Gemmer alle data til brug ved filtrering
 
+// Hent data fra API
+// Bruger fetch til at hente data fra vores Wordpress API
 fetch(domain)
+// Når vi får et svar fra API, konvertere det til JSON format
   .then(response => response.json())
   .then(data => {
-    data.forEach((post, index) => {
-      const acf = post.acf || {};
-      if (acf.sport && sportToShow.includes(acf.sport)) {
-        const holdDiv = document.createElement('div');
-        holdDiv.classList.add('holdcard');
-        const modal = `modal-${index}`;
-        holdDiv.innerHTML = `
-          <p><strong>${acf.titel || 'Kommer snart'}</strong></p>
-          <p>${acf.pris || 'Kommer snart'}</p>
-          <p>${acf.alder || 'Kommer snart'}</p>
-          <button class="open-modal" data-modal="${modal}">Mere Info</button>
-          <div class="modal" id="${modal}">
-            <div class="modal-content">
-              <span class="close" data-modal="${modal}">&times;</span>
-              <p><strong>Beskrivelse:</strong> ${acf.information || 'Ingen beskrivelse'}</p>
-            </div>
-          </div>
-        `;
-
-        hold.appendChild(holdDiv);
-      }
-    });
-
-    // Open modal
-    document.querySelectorAll('.open-modal').forEach(button => {
-      button.addEventListener('click', () => {
-        const modal = button.getAttribute('data-modal');
-        document.getElementById(modal).style.display = 'block';
-      });
-    });
-
-    // Close modal
-    document.querySelectorAll('.close').forEach(closeBtn => {
-      closeBtn.addEventListener('click', () => {
-        const modal = closeBtn.getAttribute('data-modal');
-        document.getElementById(modal).style.display = 'none';
-      });
-    });
-
+    // Gem den hentede data i let allPosts
+    allPosts = data;
+    // Vis alle hold som default
+    renderHold("Alle");
   })
+  // Vis fejl i konsol OG i HTML vis der sker fejl ved at hente data
   .catch(error => {
     console.error("Fejl ved hentning af data:", error);
     hold.innerHTML = "<p>Kunne ikke hente hold-data.</p>";
   });
 
+// Funktion til at vise hold baseret på den valgte sportsgren
+function renderHold(valgtSport) {
+  // Ryd det tidligere indhold i hold div for at gøre plads til det filtreret indhold
+  hold.innerHTML = ''; 
+// gå gennem hold (posts) i vores let allPosts
+  allPosts.forEach((post) => {
+    // Tag acf data fra post
+    const acf = post.acf || {};
+
+    // Filtrér ud fra valgt sport
+    if (acf.sport && (valgtSport === "Alle" || acf.sport === valgtSport)) {
+      // Opretter en ny div til hvert hold
+      const holdDiv = document.createElement('div');
+      // class for styling
+      holdDiv.classList.add('holdcard');
+      // Indsæt HTML indhold i div'en (uden modal-relateret kode)
+      holdDiv.innerHTML = `
+        <h3>${acf.titel || 'Kommer snart'}</h3>
+        <p>${acf.pris || 'Kommer snart'}</p>
+        <p>${acf.alder || 'Kommer snart'}</p>
+        <p>${acf.information || 'Ingen beskrivelse'}</p>
+      `;
+      // Tilføj diven til .hold
+      hold.appendChild(holdDiv);
+    }
+  });
+}
+
+
+// Lyt til ændring i dropdown og filtrér
+sportFilter.addEventListener('change', (e) => {
+  // hent valgt færdi fra filtermenuen
+  const valgt = e.target.value;
+  // Kald nu på renderHold med den valgte sportsgren
+  renderHold(valgt);
+});
+
 
 // Stævner
+// Find HTML element .staevner
 const staevner = document.querySelector('.staevner');
+// Vores stævner
 const sportstaevner = ["Svømmestævner", "Armwrestlingstævner", "Løbestævner"];
 
+// hent data fra API
 fetch(domain)
+// konvertere til JSON
   .then(response => response.json())
   .then(data => {
     data.forEach(post => {
+      // Hent ACF dataen
       const acf = post.acf || {};
+      // Vis kun hvis sportstaevne matcher en af de defineret i vores array
       if (sportstaevner.includes(acf.sportstaevne)) {
+        // ny div for hver stævne
         const staevneDiv = document.createElement('div');
+        // tilføjer klasse
         staevneDiv.classList.add('staevnecard');
         staevneDiv.innerHTML = `
         <p><strong>${acf.titel || 'Kommer snart'}</strong></p>
