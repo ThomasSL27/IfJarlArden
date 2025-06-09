@@ -247,12 +247,22 @@ h2{
     padding: var(--tnSpacer);
 }
 
+.holdcard{
+  position: relative;
+  margin-bottom: var(--lgSpacer);
+  background-color: var(--primary-color);
+}
+.holdcard p{
+  background-color: var(--primary-color);
+}
 .modal {
   display: none;
   position: absolute;
   z-index: 1;
   width: 100%;
-  height: 100%;       
+  height: 100%;
+  top: 0;
+  left: 0;
   background-color: transparent;
 }
 .modal-content {

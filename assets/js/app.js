@@ -109,7 +109,6 @@ fetch(domain)
       if (acf.sport && sportToShow.includes(acf.sport)) {
         const holdDiv = document.createElement('div');
         holdDiv.classList.add('holdcard');
-
         const modal = `modal-${index}`;
         holdDiv.innerHTML = `
           <p><strong>${acf.titel || 'Kommer snart'}</strong></p>
