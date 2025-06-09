@@ -96,6 +96,7 @@ data.forEach(post => {
   console.error('Error', error);
 });
 
+
 // Hold
 const hold = document.querySelector('.hold');
 const sportToShow = ["Svømning", "Armwrestling", "Løb"];
@@ -103,25 +104,52 @@ const sportToShow = ["Svømning", "Armwrestling", "Løb"];
 fetch(domain)
   .then(response => response.json())
   .then(data => {
-    data.forEach(post => {
+    data.forEach((post, index) => {
       const acf = post.acf || {};
       if (acf.sport && sportToShow.includes(acf.sport)) {
         const holdDiv = document.createElement('div');
-        holdDiv.classList.add('holdcard')
+        holdDiv.classList.add('holdcard');
+
+        const modal = `modal-${index}`;
         holdDiv.innerHTML = `
           <p><strong>${acf.titel || 'Kommer snart'}</strong></p>
           <p>${acf.pris || 'Kommer snart'}</p>
           <p>${acf.alder || 'Kommer snart'}</p>
+          <button class="open-modal" data-modal="${modal}">Mere Info</button>
+          <div class="modal" id="${modal}">
+            <div class="modal-content">
+              <span class="close" data-modal="${modal}">&times;</span>
+              <p><strong>Beskrivelse:</strong> ${acf.information || 'Ingen beskrivelse'}</p>
+            </div>
+          </div>
         `;
 
         hold.appendChild(holdDiv);
       }
     });
+
+    // Open modal
+    document.querySelectorAll('.open-modal').forEach(button => {
+      button.addEventListener('click', () => {
+        const modal = button.getAttribute('data-modal');
+        document.getElementById(modal).style.display = 'block';
+      });
+    });
+
+    // Close modal
+    document.querySelectorAll('.close').forEach(closeBtn => {
+      closeBtn.addEventListener('click', () => {
+        const modal = closeBtn.getAttribute('data-modal');
+        document.getElementById(modal).style.display = 'none';
+      });
+    });
+
   })
   .catch(error => {
     console.error("Fejl ved hentning af data:", error);
     hold.innerHTML = "<p>Kunne ikke hente hold-data.</p>";
   });
+
 
 // Stævner
 const staevner = document.querySelector('.staevner');
@@ -132,12 +160,9 @@ fetch(domain)
   .then(data => {
     data.forEach(post => {
       const acf = post.acf || {};
-
-      // Only render stævner for known sports
       if (sportstaevner.includes(acf.sportstaevne)) {
         const staevneDiv = document.createElement('div');
         staevneDiv.classList.add('staevnecard');
-
         staevneDiv.innerHTML = `
         <p><strong>${acf.titel || 'Kommer snart'}</strong></p>
           <p><strong>Sport:</strong> ${acf.sportstaevne || 'Kommer snart'}</p>
