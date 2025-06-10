@@ -192,16 +192,28 @@ h2{
     list-style: none;
     cursor: pointer;
     color: var(--secondary-color);
-
   }
+  details{
+    display: block;
+  }
+  details div{
+    background-color: var(--secondary-color);
+  }
+  details div p{
+    padding: var(--tnSpacer);
+    margin: 0;
+    color: var(pink );
+  }
+  /* fjerner OG pil */
   details>summary::-webkit-details-marker {
       display: none;
   }
 
+  /* giver ny pil når lukket */
   details>summary::after {
       content: '▶';
   }
-
+  /* giver ny pil når pil er åben */
   details[open]>summary::after {
       content: '▼';
   }
