@@ -90,7 +90,12 @@ h2{
   .burgermenu svg{
     background-color: transparent;
   }
+
   /* Resten af NAV */
+  .dekstopMenu{
+    display: none;
+  }
+
   header{
     display: flex;
     align-items: center;
@@ -207,3 +212,51 @@ h2{
     width: 80vW;
     justify-content: center;
   }
+
+
+  /* media querries */
+
+  /* forside */
+  @media screen and (min-width: 1440px) {
+    .hero{
+      width: 100vw;
+      height: 60vh;
+      padding-top: 1rem;
+    }
+
+    .burger{
+      display: none;
+    }
+    
+    .dekstopMenu{
+      display: block;
+    }
+
+    .dekstopMenu ul {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .dekstopMenu ul li{
+      list-style-type: none;
+
+    }
+    .dekstopMenu ul li a{
+      margin-left: 3rem;
+      font-size: var(--h2-font-size);
+      color: var(--desktopNavigation-color);
+      text-decoration: none;  
+    }
+
+    .dekstopMenu .kontaktKnap a {
+      background-color: var(--desktopNavigation-color);
+      color: white;
+      padding: 0.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: 15px;
+      }
+
+      /* forside styling */
+      
+}
