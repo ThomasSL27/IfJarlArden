@@ -181,34 +181,22 @@ h2{
 
 
   /* kontakt side details styling */
-  .kontakt{
-    padding: var(--tnSpacer);
-    border-radius: 0.5rem;
+   .kontakt{
+  padding: var(--tnSpacer);
+  border-radius: 0.5rem;
+}
+summary{
     background-color: var(--primary-color);
-    margin: var(--tnSpacer);
-  }
-  .kontakt summary{
-    color: var(--secondary-color);
-    background-color: var(--primary-color);
-    display: flex;
-    justify-content: space-between;
-  }
-  summary {
     list-style: none;
     cursor: pointer;
-    color: var(--secondary-color);
-  }
-  details{
-    display: block;
-  }
-  details div{
-    background-color: var(--secondary-color);
-  }
-  details div p{
+    display: flex;
+    justify-content: space-between;
     padding: var(--tnSpacer);
-    margin: 0;
-    color: var(pink );
-  }
+    color: var(--secondary-color);
+    margin-bottom: var(--tnSpacer);
+    border-radius: 0.5rem;
+}
+
   /* fjerner OG pil */
   details>summary::-webkit-details-marker {
       display: none;
@@ -221,6 +209,10 @@ h2{
   /* giver ny pil når pil er åben */
   details[open]>summary::after {
       content: '▼';
+  }
+
+  .bestyrelsen{
+    display: block;
   }
 
   /* Armwrestling Styling */
