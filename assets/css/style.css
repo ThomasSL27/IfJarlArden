@@ -396,4 +396,93 @@ summary{
           width: 90%;
           height: 100%;
     }
+
+    /* Svømning styling */
+
+    #svoemhero{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-row: 1fr, 1fr;
+    }
+
+    #svoemhero h1{
+      grid-column: 6 / 8;
+      grid-row: 1;
+      font-size: 2.5rem;
+    }
+
+    #svoemhero img{
+      grid-column: 1 / 13;
+      grid-row: 2;
+    }
+
+    #svoemintro h2{
+      grid-column: 6 / 9;
+      grid-row: 1;
+      justify-content: start;
+    }
+
+    #svoemintro p{
+      grid-column: 6 / 9;
+      grid-row: 2;
+    }
+
+    #svoemhold img{
+      grid-column: 1 / 7;
+      grid-row-start: 1;
+      grid-row-end: 4;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    #svoemhold h2{
+      grid-column: 8 / 10;
+      grid-row: 1;
+      justify-content: start;
+    }
+
+    #svoemhold p{
+      grid-column: 8 / 13;
+      grid-row: 2;
+    }
+
+    #svoemhold a{
+      grid-column: 8 / 10;
+      grid-row: 3;
+      justify-content: center;
+      align-items: start;
+    }
+
+    #svoemstaevner img{
+      grid-column: 7 / 13;
+      grid-row: 1 / 4;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    #svoemstaevner a{
+      grid-column: 1/7;
+      grid-row: 3;
+    }
+
+    #svoemkontakt h2{
+      grid-column: 6 / 8;
+      grid-row: 1;
+      justify-content: start;
+    }
+    #svoemkontakt p{
+      grid-column: 6 / 8;
+      grid-row: 2;
+      justify-content: start;
+    }
+    #svoemkontakt a{
+      grid-column: 6 / 8;
+      grid-row: 3;
+      justify-content: center;
+      align-items: start;
+    }
+
+    /* armwrestling styling */
 }
