@@ -158,7 +158,7 @@ sportFilter.addEventListener('change', (e) => {
 // Find HTML element .staevner
 const staevner = document.querySelector('.staevner');
 // Vores stævner
-const sportstaevner = ["Svømmestævner", "Armwrestlingstævner", "Løbestævner"];
+const sportstaevne = ["Svømmestævner", "Armwrestlingstævner", "Løbestævner"];
 
 // hent data fra API
 fetch(domain)
@@ -169,7 +169,7 @@ fetch(domain)
       // Hent ACF dataen
       const acf = post.acf || {};
       // Vis kun hvis sportstaevne matcher en af de defineret i vores array
-      if (sportstaevner.includes(acf.sportstaevne)) {
+      if (sportstaevne.includes(acf.sportstaevne)) {
         // ny div for hver stævne
         const staevneDiv = document.createElement('div');
         // tilføjer klasse
@@ -180,7 +180,6 @@ fetch(domain)
           <p><strong>Pris:</strong> ${acf.pris || 'Kommer snart'}</p>
           <p><strong>Alder:</strong> ${acf.alder || 'Kommer snart'}</p>
         `;
-
         staevner.appendChild(staevneDiv);
       }
     });
