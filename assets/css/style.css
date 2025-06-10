@@ -279,6 +279,16 @@ summary{
     padding: var(--tnSpacer);
     border-radius: 1rem;
     text-decoration: none;
+    border: none;
+    margin: var(--tnSpacer);
+  }
+
+  .holdknap a{
+    background-color: var(--blue-button);
+    color: white;
+    font-size: var(--lgText-font-size);
+    border-radius: 1rem;
+    text-decoration: none;
   }
 
   /* media querries */
