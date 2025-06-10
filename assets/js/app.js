@@ -90,8 +90,12 @@ fetch(domain)
 // Hold
 const hold = document.querySelector('.hold');
 const sportFilter = document.getElementById('sport-filter');
-let allPosts = []; // Gemmer alle data til brug ved filtrering
+const loader = document.getElementById('loader')
+// Gemmer alle data til brug ved filtrering
+let allPosts = []; 
 
+// Vis vores loader
+loader.style.display = 'block';
 // Hent data fra API
 // Bruger fetch til at hente data fra vores Wordpress API
 fetch(domain)
@@ -102,11 +106,14 @@ fetch(domain)
     allPosts = data;
     // Vis alle hold som default
     renderHold("Alle");
+
+    loader.style.display = 'none';
   })
   // Vis fejl i konsol OG i HTML vis der sker fejl ved at hente data
   .catch(error => {
     console.error("Fejl ved hentning af data:", error);
     hold.innerHTML = "<p>Kunne ikke hente hold-data.</p>";
+    loader.style.display = 'none';
   });
 
 // Funktion til at vise hold baseret på den valgte sportsgren
@@ -127,9 +134,9 @@ function renderHold(valgtSport) {
       // Indsæt HTML indhold i div'en (uden modal-relateret kode)
       holdDiv.innerHTML = `
         <h3>${acf.titel || 'Kommer snart'}</h3>
-        <p>Pris: ${acf.pris || 'Kommer snart'}</p>
         <p>Alder: ${acf.alder || 'Kommer snart'}</p>
         <p>${acf.information || 'Ingen beskrivelse'}</p>
+        <a class="holdknap" href="">Se mere info</a>
       `;
       // Tilføj diven til .hold
       hold.appendChild(holdDiv);

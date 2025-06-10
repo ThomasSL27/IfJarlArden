@@ -262,3 +262,16 @@ summary{
   margin: var(--tnSpacer);
   padding-bottom: var(--tnSpacer);
 }
+#loader{
+  margin: 2rem;
+  text-align: center;
+  font-size: 2rem;
+}
+ .holdknap{
+    background-color: var(--blue-button);
+    color: white;
+    font-size: var(--lgText-font-size);
+    padding: var(--tnSpacer);
+    border-radius: 1rem;
+    text-decoration: none;
+  }
