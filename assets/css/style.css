@@ -104,6 +104,7 @@ h2{
     display: flex;
     align-items: center;
     margin-bottom: var(--mdSpacer);
+    border-bottom: 2px dotted var(--primary-color);
   }
   header img{
     width: 4rem;
