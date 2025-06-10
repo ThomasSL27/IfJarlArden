@@ -136,7 +136,7 @@ function renderHold(valgtSport) {
         <h3>${acf.titel || 'Kommer snart'}</h3>
         <p>Alder: ${acf.alder || 'Kommer snart'}</p>
         <p>${acf.information || 'Ingen beskrivelse'}</p>
-        <a class="holdknap" href="">Se mere info</a>
+        <button class=holdknap><a href="">Se mere info</a></button>
       `;
       // Tilføj diven til .hold
       hold.appendChild(holdDiv);
