@@ -43,71 +43,71 @@ h2{
   font-weight: 400;
 }
 
+
+/* Burgermenu */
+.burger, .close {
+  width: 2rem;
+  height: 2rem;
+}
+.burger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.menu {
+  position: fixed;
+  top: 0;
+  right: -19rem;
+  width: 19rem;
+  height: 100vh;
+  background-color: var(--primary-color);
+  transition: right 0.3s ease;
+  z-index: 1002;
+  padding: 3.5rem 1.25rem 1.25rem;
+}
+.menu.open {
+  right: 0;
+}
+.menu ul, .menu li {
+  list-style: none;
+  padding: 0;
+  background-color: var(--primary-color);
+  margin: 0;
+}
+.menu ul li {
+  background-color: var(--primary-color);
+  margin: 1rem 0;
+}
+.menu ul li a {
+  background-color: var(--primary-color);
+  text-decoration: none;
+  color: var(--mobileNavigation-color);
+  font-size: var(--lgText-font-size);
+}
+.menu hr{
+  margin: 2px;
+}
+.burgermenu svg{
+  background-color: transparent;
+}
+
+/* Resten af NAV */
+.dekstopMenu{
+  display: none;
+}
 .dekstopMenu ul li:hover{
   text-decoration: underline;
   color: var(--primary-color);
 }
 
-/* Burgermenu */
-.burger, .close {
-    width: 2rem;
-    height: 2rem;
-  }
-  .burger {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1001;
-  }
-  .close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-  .menu {
-    position: fixed;
-    top: 0;
-    right: -19rem;
-    width: 19rem;
-    height: 100vh;
-    background-color: var(--primary-color);
-    transition: right 0.3s ease;
-    z-index: 1002;
-    padding: 3.5rem 1.25rem 1.25rem;
-  }
-  .menu.open {
-    right: 0;
-  }
-  .menu ul, .menu li {
-    list-style: none;
-    padding: 0;
-    background-color: var(--primary-color);
-    margin: 0;
-  }
-  .menu ul li {
-    background-color: var(--primary-color);
-    margin: 1rem 0;
-  }
-  .menu ul li a {
-    background-color: var(--primary-color);
-    text-decoration: none;
-    color: var(--mobileNavigation-color);
-    font-size: var(--lgText-font-size);
-  }
-  .menu hr{
-    margin: 2px;
-  }
-  .burgermenu svg{
-    background-color: transparent;
-  }
-
-  /* Resten af NAV */
-  .dekstopMenu{
-    display: none;
-  }
-
-  header{
-    display: flex;
+header{
+  display: flex;
     align-items: center;
     margin-bottom: var(--mdSpacer);
     border-bottom: 2px dotted var(--primary-color);
