@@ -258,5 +258,23 @@ h2{
       }
 
       /* forside styling */
-      
+      .sectionMobil{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(12 , 1fr);
+        grid-template-rows: 20%, 80%;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      .sectionMobil h1{
+        font-size: var(--h1-font-size);
+        grid-column: 1 / 6 ;
+        grid-row: 1;
+      }
+    .sectionMobil p{
+      font-size: var(--lgText-font-size);
+      grid-column: -13 / -8;
+      grid-row: 2;
+    }
 }
