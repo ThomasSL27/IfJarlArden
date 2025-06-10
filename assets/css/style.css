@@ -139,6 +139,11 @@ h2{
     justify-content:center;
   }
 
+  .sectionMobil iframe{
+    width: 100vw;
+    height: 50vw;
+  }
+
   .articleMobil{
     display: flex;
     flex-direction: column;
@@ -309,7 +314,7 @@ summary{
 
     }
     .dekstopMenu ul li a{
-      margin-left: 3rem;
+      margin-left: 2rem;
       font-size: var(--h2-font-size);
       color: var(--desktopNavigation-color);
       text-decoration: none;  
@@ -329,7 +334,7 @@ summary{
         display: grid;
         gap: 20px;
         grid-template-columns: repeat(12 , 1fr);
-        grid-template-rows: 20%, 80%;
+        grid-template-rows: 0.5fr, 1fr;
         margin-left: 50px;
         margin-right: 50px;
       }
@@ -337,11 +342,21 @@ summary{
       .sectionMobil h1{
         font-size: var(--h1-font-size);
         grid-column: 1 / 6 ;
-        grid-row: 1;
+        grid-row: 1 / 2;
+        padding: var(--tnSpacer);
       }
     .sectionMobil p{
       font-size: var(--lgText-font-size);
       grid-column: -13 / -8;
       grid-row: 2;
+      margin: 0;
+    }
+    .sectionMobil iframe{
+     grid-column-start: 7;
+     grid-column-end: 13;
+     grid-row-start: 1;
+     grid-row-end: 3;
+     width: 50vw;
+     height: 50vh;
     }
 }
