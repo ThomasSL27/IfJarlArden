@@ -154,7 +154,7 @@ fetch(domain)
       <h3>${acf.titel || 'Kommer snart'}</h3>
       <p>Alder: ${acf.alder || 'Kommer snart'}</p>
       <p>${acf.information || 'Ingen beskrivelse'}</p>
-      <button class=holdknap><a href="kontingent.html?id=${post.id}">Tilmeld dig hold</a></button>
+     <a class="knap1" href="kontingent.html?id=${post.id}">Tilmeld dig</a>
       `;
       // Tilføj diven til .hold
       hold.appendChild(holdDiv);
