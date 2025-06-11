@@ -85,6 +85,22 @@ fetch(domain)
     console.error('Error', error);
   });
 
+  //fanger details 
+function toggleDetails() {
+  const open = window.innerWidth >= 1440;
+  // Vælger alle details elementer og sætter deres open attribute til true eller false efter vw
+
+  // Hvis skærmen er 1440 eller mere, så åbnes alle details elementer
+  document.querySelectorAll('details').forEach(details => {
+    details.open = open;
+  });
+}
+//holder den åben når wv er 1440px+
+window.addEventListener('DOMContentLoaded', toggleDetails);
+
+//hvis nu mark skulle ændre størelsen på skærmen
+window.addEventListener('resize', toggleDetails);
+
 
 
 // Hold
@@ -145,7 +161,6 @@ fetch(domain)
     }
   });
 }
-
 
 // Lyt til ændring i dropdown og filtrér
 sportFilter.addEventListener('change', (e) => {
