@@ -249,22 +249,42 @@ const URLparams = new URLSearchParams(window.location.search);
 // Finder værdien af id'et fra URLen
 const postId = URLparams.get('id');
 // Henter en specifik post fra Wordpress REST API baseret på ID
-fetch(`https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts/${postId}`)
+fetch(`https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts/${postId}?_embed&acf_format=standard`)
 .then(response => response.json())
 .then(post => {
   const acf = post.acf || {};
   const kontingent = document.getElementById('kontingent');
 
+  if (!kontingent) {
+    console.error('Element med id "kontingent" findes ikke');
+    return;
+  }
+
+  console.log('acf.billede:', acf.billede);
+
   kontingent.innerHTML = `
-  <h1>${acf.titel || 'Ingen titel'}</h1>
-  <p>Alder: ${acf.alder ||'Ingen aldersinfo'}</p>
-  <p>Pris: ${acf.pris || 'Ingen beskrivelse'}</p>
-  <p>${acf.information || 'Ingen beskrivelse'}</p>
+    <h1>${acf.titel || 'Ingen titel'}</h1>
+    <p>Alder: ${acf.alder || 'Ingen aldersinfo'}</p>
+    <p>Pris: ${acf.pris || 'Pris ikke angivet'}</p>
+    <p>${acf.information || 'Ingen beskrivelse'}</p>
+    <p>Sæson: ${acf.saeson || 'Sæson ikke angivet'}</p>
   `;
+
+  if (acf.billede?.url) {
+    const img = document.createElement('img');
+    img.src = acf.billede.url;
+    img.alt = acf.billede.alt || 'Billede';
+    console.log('Billedets URL:', img.src);
+
+    kontingent.appendChild(img);
+  } else {
+    console.log('Ingen billede URL fundet i acf.billede');
+  }
 })
 .catch(err => {
   console.error('Fejl:', err);
 });
+
 
 
 
