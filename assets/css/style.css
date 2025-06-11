@@ -271,15 +271,6 @@ header h1 {
   font-size: var(--lgText-font-size);
 }
 
-
-
-/* select {
-  appearance: none;
-  -webkit-appearance: none;
-}
-select::after {
-  content: '▼';
-} */
 /*  */
 /*  */
 /* kontakt side details styling */
@@ -1130,14 +1121,20 @@ margin: var(--tnSpacer);
       grid-row: 1;
     }
 
-    /* hold styling */
 
+    /*  */
+    /*  */
+    /* hold styling */
+    /*  */
+    /*  */
     .hold{
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: repeat(5 , 1fr);
     }
-
+    .holdcard button{
+    align-items: ;
+    }
     .holdcard:nth-of-type(1){
       grid-column: 1 / 5;
       grid-row: 1;
