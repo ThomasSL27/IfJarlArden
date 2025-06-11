@@ -191,8 +191,11 @@ header{
     text-decoration: none;
   }
 
-
+/*  */
+/*  */
   /* kontakt side details styling */
+/*  */
+/*  */
    .kontakt{
   padding: var(--tnSpacer);
   border-radius: 0.5rem;
@@ -238,8 +241,11 @@ summary{
     width: 80vW;
     justify-content: center;
   }
-
+/*  */
+/*  */
   /* footer styling */
+/*  */
+/*  */
   footer p, footer a, footer section, footer h2, footer img, footer i {
     background-color: var(--primary-color);
   }
@@ -303,9 +309,15 @@ summary{
     text-decoration: none;
   }
 
+/*  */
+/*  */
   /* media querries */
+/*  */
+/*  */
 
+/*  */
   /* forside */
+/*  */
   @media screen and (min-width: 1440px) {
     .hero{
       width: 100vw;
