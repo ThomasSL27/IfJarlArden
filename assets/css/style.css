@@ -251,6 +251,30 @@ header h1 {
   border-radius: 1rem;
   text-decoration: none;
 }
+.tilmeldknap {
+  background-color: var(--tritiary-color);
+  color: white;
+  font-size: var(--lgText-font-size);
+  padding: var(--tnSpacer);
+  border-radius: 1rem;
+  margin: var(--tnSpacer);
+  border: 0;
+}
+
+.tilmeldknap a {
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+}
+
+/*  */
+/* hover til knapper */
+/*  */
+.knap1:hover {
+  background-color: #2176b6;
+  color: var(--secondary-color);
+  transition: all 0.3s ease-in-out;
+}
 
 /*  */
 /*  */
@@ -403,40 +427,6 @@ margin: var(--tnSpacer);
   text-align: center;
   font-size: 2rem;
 }
-
-.holdknap {
-  background-color: var(--blue-button);
-  color: white;
-  font-size: var(--lgText-font-size);
-  padding: var(--tnSpacer);
-  border-radius: 1rem;
-  margin: var(--tnSpacer);
-  border: 0;
-}
-
-.holdknap a {
-  text-decoration: none;
-  background-color: transparent;
-  color: white;
-}
-
-.tilmeldknap {
-  background-color: var(--tritiary-color);
-  color: white;
-  font-size: var(--lgText-font-size);
-  padding: var(--tnSpacer);
-  border-radius: 1rem;
-  margin: var(--tnSpacer);
-  border: 0;
-}
-
-.tilmeldknap a {
-  text-decoration: none;
-  background-color: transparent;
-  color: white;
-}
-
-
 /*  */
 /*  */
 /* media querries */
@@ -1165,9 +1155,6 @@ margin: var(--tnSpacer);
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: repeat(5 , 1fr);
-    }
-    .holdcard button{
-    align-items: ;
     }
     .holdcard:nth-of-type(1){
       grid-column: 1 / 5;
