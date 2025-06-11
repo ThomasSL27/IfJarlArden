@@ -829,4 +829,18 @@ footer {
           grid-column: 5 / 9;
           grid-row: 2;
         }
+
+        .armwrestling {
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
+          grid-template-rows: 1fr, 1fr;
+          justify-items: center;
+        }
+
+        .armwrestling div{
+          grid-column: 1 / 5;
+          grid-row: 1;
+        }
+
+
 }
