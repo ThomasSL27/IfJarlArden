@@ -361,7 +361,7 @@ footer {
   padding-bottom: var(--tnSpacer);
 }
 
-.holdcard p,.holdcard strong, .holdcard h3 {
+.holdcard p,.holdcard strong, .holdcard h3, .holdcard h1 {
 background-color: var(--primary-color);
 color: white;
 margin: var(--tnSpacer);
