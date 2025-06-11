@@ -178,7 +178,7 @@ fetch(domain)
       // ny div for hver stævne
       const staevneDiv = document.createElement('div');
         // tilføjer klasse
-        staevneDiv.classList.add('staevnecard');
+        staevneDiv.classList.add('holdcard');
         staevneDiv.innerHTML = `
         <p><strong>${acf.titel || 'Kommer snart'}</strong></p>
         <p><strong>Sport:</strong> ${acf.sportstaevne || 'Kommer snart'}</p>
