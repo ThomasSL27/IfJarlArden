@@ -254,6 +254,36 @@ header h1 {
 
 /*  */
 /*  */
+/* Filter styling */
+/*  */
+/*  */
+
+.dropdown-filter {
+  display: flex;
+  justify-content: left;
+  opacity: 0.8;
+  margin: var(--tnSpacer);
+}
+.dropdown-filter select {
+  padding: var(--tnSpacer);
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  font-size: var(--lgText-font-size);
+}
+
+
+
+/* select {
+  appearance: none;
+  -webkit-appearance: none;
+}
+select::after {
+  content: '▼';
+} */
+/*  */
+/*  */
 /* kontakt side details styling */
 /*  */
 /*  */
@@ -1212,6 +1242,26 @@ margin: var(--tnSpacer);
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: repeat(4, 1fr);
+    }
+
+    /* footer styling */
+
+    footer{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 1fr, 1fr;
+      background-color: var(--primary-color);
+    }
+
+    .footerinfo h2:nth-of-type(1){
+      grid-column: 4 / 5;
+      grid-row: 1 / 2;
+      font-size: 2rem;
+    }
+    
+    .sponsorer{
+      grid-column: 11 / 13;
+      grid-row: 1 / 3;
     }
 
 }
