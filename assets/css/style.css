@@ -44,8 +44,11 @@ h2 {
   margin-bottom: 0;
   font-weight: 400;
 }
-
+/*  */
+/*  */
 /* Burgermenu */
+/*  */
+/*  */
 .burger,
 .close {
   width: 2rem;
@@ -108,10 +111,17 @@ h2 {
 .burgermenu svg {
   background-color: transparent;
 }
-
+/*  */
+/*  */
 /* Resten af NAV */
+/*  */
+/*  */
 .dekstopMenu {
   display: none;
+}
+.dekstopMenu ul li:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
 }
 
 header {
@@ -127,8 +137,11 @@ header img {
 header h1 {
   font-size: var(--h1-font-size);
 }
-
+/*  */
+/*  */
 /* Forside */
+/*  */
+/*  */
 .hero {
   width: 100%;
   height: 277px;
@@ -186,6 +199,11 @@ header h1 {
   margin-top: var(--tnSpacer);
 }
 
+/*  */
+/*  */
+/* Knapper */
+/*  */
+/*  */
 .knap1 {
   background-color: var(--blue-button);
   color: white;
@@ -207,8 +225,12 @@ header h1 {
   text-decoration: none;
 }
 
-
+/*  */
+/*  */
 /* kontakt side details styling */
+/*  */
+/*  */
+
 .kontakt {
   padding: var(--tnSpacer);
   border-radius: 0.5rem;
@@ -245,7 +267,11 @@ details[open]>summary::after {
   display: block;
 }
 
+/*  */
+/*  */
 /* Armwrestling Styling */
+/*  */
+/*  */
 
 #AWheader {
   text-align: center;
@@ -256,8 +282,11 @@ details[open]>summary::after {
   width: 80vW;
   justify-content: center;
 }
-
+/*  */
+/*  */
 /* footer styling */
+/*  */
+/*  */
 footer p,
 footer a,
 footer section,
@@ -325,10 +354,15 @@ footer {
   border-radius: 1rem;
   text-decoration: none;
 }
-
+/*  */
+/*  */
 /* media querries */
+/*  */
+/*  */
 
-/* forside */
+/*  */
+/* Menu */
+/*  */
 @media screen and (min-width: 1440px) {
   .hero {
     width: 100vw;
@@ -343,6 +377,7 @@ footer {
   .dekstopMenu {
     display: block;
   }
+  
 
   .dekstopMenu ul {
     display: flex;
@@ -380,7 +415,11 @@ footer {
     border-radius: 15px;
   }
 
+  /*  */
+  /*  */
   /* forside styling */
+  /*  */
+  /*  */
   .sectionMobil h1 {
     font-size: var(--h1-font-size);
     grid-column: 1 / 6;
@@ -448,9 +487,11 @@ footer {
     width: 90%;
     height: 100%;
   }
-
+  /*  */
+  /*  */
   /* Svømning styling */
-
+  /*  */
+  /*  */
   #svoemhero {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -537,8 +578,11 @@ footer {
     justify-content: center;
     align-items: start;
   }
-
+  /*  */
+  /*  */
   /* armwrestling styling */
+  /*  */
+  /*  */
   #AWherosection {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
