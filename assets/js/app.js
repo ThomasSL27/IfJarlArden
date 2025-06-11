@@ -138,7 +138,7 @@ fetch(domain)
       <h3>${acf.titel || 'Kommer snart'}</h3>
       <p>Alder: ${acf.alder || 'Kommer snart'}</p>
       <p>${acf.information || 'Ingen beskrivelse'}</p>
-      <button class=holdknap><a href="">Se mere info</a></button>
+      <button class=holdknap><a href="kontingent.html?id=${post.id}">Se mere info</a></button>
       `;
       // Tilføj diven til .hold
       hold.appendChild(holdDiv);
@@ -195,7 +195,25 @@ fetch(domain)
   });
   }
 
+// Kontakt side
+const URLparams = new URLSearchParams(window.location.search);
+const postId = URLparams.get('id');
 
+fetch(`https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts/${postId}`)
+.then(response => response.json())
+.then(post => {
+  const acf = post.acf || {};
+  const kontingent = document.getElementById('kontingent');
+
+  kontingent.innerHTML = `
+  <h1>${acf.titel || 'Ingen titel'}</h1>
+  <p>Alder: ${acf.alder ||'Ingen aldersinfo'}</p>
+  <p>${acf.information || 'Ingen beskrivelse'}</p>
+  `;
+})
+.catch(err => {
+  console.error('Fejl:', err);
+});
 
 
 
