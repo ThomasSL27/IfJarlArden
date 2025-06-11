@@ -124,9 +124,6 @@ h2 {
 
 .dekstopMenu ul li a {
   position: relative;
-  text-decoration: none;
-  color: var(--desktopNavigation-color);
-  transition: color 0.2s;
 }
 
 .dekstopMenu ul li a::after {
@@ -430,6 +427,7 @@ margin: var(--tnSpacer);
 
   .dekstopMenu ul {
     display: flex;
+    padding: 0;
     flex-direction: row;
   }
 
@@ -1149,4 +1147,11 @@ margin: var(--tnSpacer);
       grid-row: 5;
     }
 
+    /* stævner styling */
+
+    .staevner{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
 }
