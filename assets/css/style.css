@@ -28,7 +28,9 @@ body {
   --lgSpacer: 10rem;
   /* font sizes */
   --h1-font-size: 2rem;
+  --h1-font-size-pc: 3rem;
   --h2-font-size: 1.5rem;
+  --h2-font-size-pc: 2rem;
   --lgText-font-size: 1rem;
   --smTect-font-size: 0.75rem;
 }
@@ -321,7 +323,7 @@ details[open]>summary::after {
 
 #AWheader {
   text-align: center;
-
+  font-size: var(--h1-font-size-pc);
 }
 
 .HeroAW {
@@ -445,6 +447,12 @@ margin: var(--tnSpacer);
 /* Menu */
 /*  */
 @media screen and (min-width: 1440px) {
+  .article p {
+    font-size: var(--lgText-font-size);
+  }
+  .section p {
+    font-size: var(--lgText-font-size);
+  }
 
   details>summary::after {
     content: '';
@@ -514,7 +522,7 @@ margin: var(--tnSpacer);
   /*  */
   /*  */
   .sectionMobil h1 {
-    font-size: var(--h1-font-size);
+    font-size: var(--h1-font-size-pc);
     grid-column: 1 / 6;
     grid-row: 1 / 2;
     padding: var(--tnSpacer);
@@ -555,6 +563,7 @@ margin: var(--tnSpacer);
   }
 
   .articleMobil h2 {
+    font-size: var(--h2-font-size-pc);
     grid-row: 1;
     grid-column: 6 / 9;
   }
@@ -593,9 +602,9 @@ margin: var(--tnSpacer);
   }
 
   #svoemhero h1 {
+    font-size: var(--h1-font-size-pc);
     grid-column: 6 / 8;
     grid-row: 1;
-    font-size: 2.5rem;
   }
 
   #svoemhero img {
@@ -604,6 +613,7 @@ margin: var(--tnSpacer);
   }
 
   #svoemintro h2 {
+    font-size: var(--h2-font-size-pc);
     grid-column: 6 / 9;
     grid-row: 1;
     justify-content: start;
@@ -624,6 +634,7 @@ margin: var(--tnSpacer);
   }
 
   #svoemhold h2 {
+    font-size: var(--h2-font-size-pc);
     grid-column: 8 / 10;
     grid-row: 1;
     justify-content: start;
@@ -654,7 +665,12 @@ margin: var(--tnSpacer);
     grid-row: 3;
   }
 
+  #svoemstaevner h2{
+    font-size: var(--h2-font-size-pc);
+  }
+
   #svoemkontakt h2 {
+    font-size: var(--h2-font-size-pc);
     grid-column: 6 / 8;
     grid-row: 1;
     justify-content: start;
@@ -679,12 +695,14 @@ margin: var(--tnSpacer);
   /*  */
   /*  */
   #AWherosection {
+    font-size: var(--h1-font-size-pc);
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr, 1fr;
   }
 
   #AWherosection h1 {
+    font-size: var(--h1-font-size-pc);
     grid-column: 6 / 8;
     grid-row: 1;
     font-size: 2.5rem;
@@ -702,6 +720,7 @@ margin: var(--tnSpacer);
   }
 
   #AWintro h2 {
+    font-size: var(--h2-font-size-pc);
     grid-column: 5 / 9;
     grid-row: 1;
   }
@@ -722,6 +741,7 @@ margin: var(--tnSpacer);
   }
 
   #AWhold h2 {
+    font-size: var(--h2-font-size-pc);
     grid-column: 8 / 10;
     grid-row: 1;
     justify-content: start;
@@ -747,12 +767,17 @@ margin: var(--tnSpacer);
     margin: 0;
   }
 
+#AWstaevner h2{
+    font-size: var(--h2-font-size-pc);
+  }
+
   #AWstaevner a {
     grid-column: 1/7;
     grid-row: 3;
   }
 
   #AWkontakt h2 {
+    font-size: var(--h2-font-size-pc);
     grid-column: 6 / 8;
     grid-row: 1;
     justify-content: start;
@@ -780,6 +805,7 @@ margin: var(--tnSpacer);
   }
 
   #loebhero h1 {
+    font-size: var(--h1-font-size-pc);
     grid-column: 6 / 8;
     grid-row: 1;
     font-size: 2.5rem;
@@ -795,6 +821,7 @@ margin: var(--tnSpacer);
   }
 
   #loebintro h2 {
+    font-size: var(--h2-font-size-pc);
     grid-column: 5 / 9;
     grid-row: 1;
   }
@@ -814,6 +841,7 @@ margin: var(--tnSpacer);
   }
 
   #loebhold h2 {
+    font-size: var(--h2-font-size-pc);
     grid-column: 8 / 10;
     grid-row: 1;
     justify-content: start;
@@ -844,8 +872,13 @@ margin: var(--tnSpacer);
     grid-row: 3;
   }
 
+  #loebstaevner h2{
+    font-size: var(--h2-font-size-pc);
+  }
+
 
   #loebevents h2 {
+    font-size: var(--h2-font-size-pc);
     grid-column: 2 / 6;
     grid-row: 1;
   }
@@ -866,6 +899,7 @@ margin: var(--tnSpacer);
   }
 
   #loebkontakt h2 {
+    font-size: var(--h2-font-size-pc);
     grid-column: 9 / 11;
     grid-row: 1;
     justify-content: start;
