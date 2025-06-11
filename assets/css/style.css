@@ -417,6 +417,13 @@ footer {
   margin: 1rem;
   padding-top: var(--tnSpacer);
   padding-bottom: var(--tnSpacer);
+  display: flex;
+  flex-direction: column;
+  height: 92%;
+}
+.holdcard .knap1 {
+  margin-top: auto;
+  margin-left: var(--tnSpacer);
 }
 
 .holdcard p,.holdcard strong, .holdcard h3, .holdcard h1 {
