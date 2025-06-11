@@ -252,6 +252,36 @@ header h1 {
 
 /*  */
 /*  */
+/* Filter styling */
+/*  */
+/*  */
+
+.dropdown-filter {
+  display: flex;
+  justify-content: left;
+  opacity: 0.8;
+  margin: var(--tnSpacer);
+}
+.dropdown-filter select {
+  padding: var(--tnSpacer);
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  font-size: var(--lgText-font-size);
+}
+
+
+
+/* select {
+  appearance: none;
+  -webkit-appearance: none;
+}
+select::after {
+  content: '▼';
+} */
+/*  */
+/*  */
 /* kontakt side details styling */
 /*  */
 /*  */
