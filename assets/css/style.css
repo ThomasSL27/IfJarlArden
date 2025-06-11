@@ -47,6 +47,9 @@ h2 {
   font-weight: 400;
 }
 
+iframe{
+  border: none;
+}
 /*  */
 /*  */
 /* Burgermenu */
