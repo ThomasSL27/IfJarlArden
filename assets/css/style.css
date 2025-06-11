@@ -107,8 +107,10 @@ h2 {
   font-size: var(--lgText-font-size);
 }
 
-.menu hr {
-  margin: 2px;
+.menu ul li:not(:last-child) {
+  border-bottom: 1px solid var(--secondary-color);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .burgermenu svg {
