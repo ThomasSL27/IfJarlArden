@@ -415,14 +415,35 @@ footer {
 }
 
 .holdcard p,.holdcard strong, .holdcard h3, .holdcard h1 {
-background-color: var(--primary-color);
-color: white;
-margin: var(--tnSpacer);
+  background-color: var(--primary-color);
+  color: white;
+  margin: var(--tnSpacer);
 }
 
 .holdcard img{
   width: 100%;
 }
+
+
+.holdcardKontigent {
+  position: relative;
+  margin-bottom: var(--lgSpacer);
+  background-color: var(--primary-color);
+  margin: 1rem;
+  padding-top: var(--tnSpacer);
+  padding-bottom: var(--tnSpacer);
+}
+.holdcardKontigent p,.holdcardKontigent strong, .holdcardKontigent h3, .holdcardKontigent h1 {
+  background-color: var(--primary-color);
+  color: white;
+  margin: var(--tnSpacer);
+}
+
+.holdcardKontigent img{
+  width: 100%;
+}
+
+
 
 #kontingent{
   padding: 1rem;
@@ -701,7 +722,10 @@ margin: var(--tnSpacer);
     font-size: var(--h1-font-size-pc);
     grid-column: 6 / 8;
     grid-row: 1;
-    font-size: 2.5rem;
+  }
+  
+  #AWheader{
+    font-size: 3rem;
   }
 
   #AWherosection figure {
@@ -801,11 +825,12 @@ margin: var(--tnSpacer);
   }
 
   #loebhero h1 {
-    font-size: var(--h1-font-size-pc);
-    grid-column: 6 / 8;
+    grid-column: 6 / 9;
     grid-row: 1;
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
+
+  
 
   #loebhero img {
     grid-column: 1 / 13;
@@ -813,7 +838,6 @@ margin: var(--tnSpacer);
     width: 100%;
     height: 820px;
     object-fit: cover;
-
   }
 
   #loebintro h2 {
@@ -1233,6 +1257,15 @@ margin: var(--tnSpacer);
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: repeat(4, 1fr);
     }
+
+    /* kontigent styling */
+
+    .holdcardKontigent{
+      width: 50%;
+      display: block;
+      margin: 0 auto;
+    }
+    
 
     /* footer styling */
 
