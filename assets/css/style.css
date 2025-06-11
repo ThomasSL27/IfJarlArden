@@ -47,6 +47,9 @@ h2 {
   font-weight: 400;
 }
 
+iframe{
+  border: none;
+}
 /*  */
 /*  */
 /* Burgermenu */
@@ -66,6 +69,7 @@ h2 {
 }
 
 .close {
+  fill: white;
   position: absolute;
   top: 20px;
   right: 20px;
