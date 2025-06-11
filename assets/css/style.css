@@ -362,14 +362,35 @@ footer {
 }
 
 .holdcard p,.holdcard strong, .holdcard h3, .holdcard h1 {
-background-color: var(--primary-color);
-color: white;
-margin: var(--tnSpacer);
+  background-color: var(--primary-color);
+  color: white;
+  margin: var(--tnSpacer);
 }
 
 .holdcard img{
   width: 100%;
 }
+
+
+.holdcardKontigent {
+  position: relative;
+  margin-bottom: var(--lgSpacer);
+  background-color: var(--primary-color);
+  margin: 1rem;
+  padding-top: var(--tnSpacer);
+  padding-bottom: var(--tnSpacer);
+}
+.holdcardKontigent p,.holdcardKontigent strong, .holdcardKontigent h3, .holdcardKontigent h1 {
+  background-color: var(--primary-color);
+  color: white;
+  margin: var(--tnSpacer);
+}
+
+.holdcardKontigent img{
+  width: 100%;
+}
+
+
 
 #kontingent{
   padding: 1rem;
@@ -1108,6 +1129,10 @@ margin: var(--tnSpacer);
       grid-template-rows: repeat(5 , 1fr);
     }
 
+    .holdcard button {
+      
+    }
+
     .holdcard:nth-of-type(1){
       grid-column: 1 / 5;
       grid-row: 1;
@@ -1179,6 +1204,15 @@ margin: var(--tnSpacer);
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: repeat(4, 1fr);
     }
+
+    /* kontigent styling */
+
+    .holdcardKontigent{
+      width: 50%;
+      display: block;
+      margin: 0 auto;
+    }
+    
 
     /* footer styling */
 
