@@ -281,6 +281,11 @@ header h1 {
   color: var(--secondary-color);
   transition: all 0.3s ease-in-out;
 }
+.tilmeldknap:hover {
+  background-color: #388e3c;
+  color: var(--secondary-color);
+  transition: all 0.3s ease-in-out;
+}
 
 /*  */
 /*  */
