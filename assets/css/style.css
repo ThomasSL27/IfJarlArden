@@ -357,7 +357,13 @@ footer {
   font-size: var(--lgText-font-size);
   padding: var(--tnSpacer);
   border-radius: 1rem;
+  margin: var(--tnSpacer);
+  border: 0;
+}
+.holdknap a{
   text-decoration: none;
+  background-color: transparent;
+  color: white;
 }
 
 /*  */
