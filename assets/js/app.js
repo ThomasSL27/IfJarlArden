@@ -271,7 +271,7 @@ fetch(`https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts/${postId}?_embed&acf_format
   const kontingent = document.getElementById('kontingent');
 
   if (!kontingent) {
-    console.error('Element med id "kontingent" findes ikke');
+    console.error('fejl');
     return;
   }
 
@@ -283,6 +283,7 @@ fetch(`https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts/${postId}?_embed&acf_format
     <p>Pris: ${acf.pris || 'Pris ikke angivet'}</p>
     <p>${acf.information || 'Ingen beskrivelse'}</p>
     <p>Sæson: ${acf.saeson || 'Sæson ikke angivet'}</p>
+    <button class=tilmeldknap><a href="#">Tilmeld</a></button>
   `;
 
   if (acf.billede?.url) {
