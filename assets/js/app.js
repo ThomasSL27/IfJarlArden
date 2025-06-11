@@ -277,15 +277,10 @@ fetch(`https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts/${postId}?_embed&acf_format
 
   console.log('acf.billede:', acf.billede);
 
-  kontingent.innerHTML = `
-    <h1>${acf.titel || 'Ingen titel'}</h1>
-    <p>Alder: ${acf.alder || 'Ingen aldersinfo'}</p>
-    <p>Pris: ${acf.pris || 'Pris ikke angivet'}</p>
-    <p>${acf.information || 'Ingen beskrivelse'}</p>
-    <p>Sæson: ${acf.saeson || 'Sæson ikke angivet'}</p>
-    <button class=tilmeldknap><a href="#">Tilmeld</a></button>
-  `;
+  // Først sætter vi titel
+  kontingent.innerHTML = `<h1>${acf.titel || 'Ingen titel'}</h1>`;
 
+  // Så tilføjer vi billedet lige efter titlen, hvis der findes et billede
   if (acf.billede?.url) {
     const img = document.createElement('img');
     img.src = acf.billede.url;
@@ -296,13 +291,16 @@ fetch(`https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts/${postId}?_embed&acf_format
   } else {
     console.log('Ingen billede URL fundet i acf.billede');
   }
+
+  // Tilføjer derefter alder, pris, sæson og information
+  kontingent.innerHTML += `
+    <p>Alder: ${acf.alder || 'Ingen aldersinfo'}</p>
+    <p>Pris: ${acf.pris || 'Pris ikke angivet'}</p>
+    <p>Sæson: ${acf.saeson || 'Sæson ikke angivet'}</p>
+    <p>${acf.information || 'Ingen beskrivelse'}</p>
+    <button class="tilmeldknap"><a href="#">Tilmeld</a></button>
+  `;
 })
 .catch(err => {
   console.error('Fejl:', err);
 });
-
-
-
-
-
-
