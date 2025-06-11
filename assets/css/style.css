@@ -66,6 +66,7 @@ h2 {
 }
 
 .close {
+  fill: white;
   position: absolute;
   top: 20px;
   right: 20px;
