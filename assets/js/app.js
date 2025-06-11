@@ -89,15 +89,17 @@ fetch(domain)
 
 // Hold
 const hold = document.querySelector('.hold');
-const sportFilter = document.getElementById('sport-filter');
-const loader = document.getElementById('loader')
-// Gemmer alle data til brug ved filtrering
-let allPosts = []; 
+if (hold){
 
-// Vis vores loader
-loader.style.display = 'block';
-// Hent data fra API
-// Bruger fetch til at hente data fra vores Wordpress API
+  const sportFilter = document.getElementById('sport-filter');
+  const loader = document.getElementById('loader')
+  // Gemmer alle data til brug ved filtrering
+  let allPosts = []; 
+  
+  // Vis vores loader
+  loader.style.display = 'block';
+  // Hent data fra API
+  // Bruger fetch til at hente data fra vores Wordpress API
 fetch(domain)
 // Når vi får et svar fra API, konvertere det til JSON format
   .then(response => response.json())
@@ -116,12 +118,12 @@ fetch(domain)
     loader.style.display = 'none';
   });
 
-// Funktion til at vise hold baseret på den valgte sportsgren
-function renderHold(valgtSport) {
-  // Ryd det tidligere indhold i hold div for at gøre plads til det filtreret indhold
-  hold.innerHTML = ''; 
-// gå gennem hold (posts) i vores let allPosts
-  allPosts.forEach((post) => {
+  // Funktion til at vise hold baseret på den valgte sportsgren
+  function renderHold(valgtSport) {
+    // Ryd det tidligere indhold i hold div for at gøre plads til det filtreret indhold
+    hold.innerHTML = ''; 
+    // gå gennem hold (posts) i vores let allPosts
+    allPosts.forEach((post) => {
     // Tag acf data fra post
     const acf = post.acf || {};
 
@@ -133,10 +135,10 @@ function renderHold(valgtSport) {
       holdDiv.classList.add('holdcard');
       // Indsæt HTML indhold i div'en (uden modal-relateret kode)
       holdDiv.innerHTML = `
-        <h3>${acf.titel || 'Kommer snart'}</h3>
-        <p>Alder: ${acf.alder || 'Kommer snart'}</p>
-        <p>${acf.information || 'Ingen beskrivelse'}</p>
-        <button class=holdknap><a href="">Se mere info</a></button>
+      <h3>${acf.titel || 'Kommer snart'}</h3>
+      <p>Alder: ${acf.alder || 'Kommer snart'}</p>
+      <p>${acf.information || 'Ingen beskrivelse'}</p>
+      <button class=holdknap><a href="">Se mere info</a></button>
       `;
       // Tilføj diven til .hold
       hold.appendChild(holdDiv);
@@ -152,33 +154,36 @@ sportFilter.addEventListener('change', (e) => {
   // Kald nu på renderHold med den valgte sportsgren
   renderHold(valgt);
 });
+}
 
 
 // Stævner
 // Find HTML element .staevner
 const staevner = document.querySelector('.staevner');
-// Vores stævner
-const sportstaevne = ["Svømmestævner", "Armwrestlingstævner", "Løbestævner"];
+if (staevner){
 
-// hent data fra API
+  // Vores stævner
+  const sportstaevne = ["Svømmestævner", "Armwrestlingstævner", "Løbestævner"];
+  
+  // hent data fra API
 fetch(domain)
 // konvertere til JSON
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(post => {
-      // Hent ACF dataen
-      const acf = post.acf || {};
-      // Vis kun hvis sportstaevne matcher en af de defineret i vores array
-      if (sportstaevne.includes(acf.sportstaevne)) {
-        // ny div for hver stævne
-        const staevneDiv = document.createElement('div');
+.then(response => response.json())
+.then(data => {
+  data.forEach(post => {
+    // Hent ACF dataen
+    const acf = post.acf || {};
+    // Vis kun hvis sportstaevne matcher en af de defineret i vores array
+    if (sportstaevne.includes(acf.sportstaevne)) {
+      // ny div for hver stævne
+      const staevneDiv = document.createElement('div');
         // tilføjer klasse
         staevneDiv.classList.add('staevnecard');
         staevneDiv.innerHTML = `
         <p><strong>${acf.titel || 'Kommer snart'}</strong></p>
-          <p><strong>Sport:</strong> ${acf.sportstaevne || 'Kommer snart'}</p>
-          <p><strong>Pris:</strong> ${acf.pris || 'Kommer snart'}</p>
-          <p><strong>Alder:</strong> ${acf.alder || 'Kommer snart'}</p>
+        <p><strong>Sport:</strong> ${acf.sportstaevne || 'Kommer snart'}</p>
+        <p><strong>Pris:</strong> ${acf.pris || 'Kommer snart'}</p>
+        <p><strong>Alder:</strong> ${acf.alder || 'Kommer snart'}</p>
         `;
         staevner.appendChild(staevneDiv);
       }
@@ -188,6 +193,7 @@ fetch(domain)
     console.error("Fejl ved hentning af data:", error);
     staevner.innerHTML = "<p>Kunne ikke hente stævne-data.</p>";
   });
+  }
 
 
 
