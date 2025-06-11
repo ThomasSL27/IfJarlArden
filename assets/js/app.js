@@ -138,7 +138,7 @@ fetch(domain)
       <h3>${acf.titel || 'Kommer snart'}</h3>
       <p>Alder: ${acf.alder || 'Kommer snart'}</p>
       <p>${acf.information || 'Ingen beskrivelse'}</p>
-      <button class=holdknap><a href="">Se mere info</a></button>
+      <button class=holdknap><a href="kontingent.html?id=${post.id}">Se mere info</a></button>
       `;
       // Tilføj diven til .hold
       hold.appendChild(holdDiv);
@@ -164,19 +164,31 @@ if (staevner){
 
   // Vores stævner
   const sportstaevne = ["Svømmestævner", "Armwrestlingstævner", "Løbestævner"];
-  
+
+  // Dropdown element til filtrering
+  const staevneFilter = document.getElementById('sport-filter');
+
+  // Gem alle data til brug ved filtrering
+  let allStaevner = [];
+
+  // vis loader
+  loader.style.display = 'block';
+
   // hent data fra API
-fetch(domain)
-// konvertere til JSON
-.then(response => response.json())
-.then(data => {
-  data.forEach(post => {
-    // Hent ACF dataen
-    const acf = post.acf || {};
-    // Vis kun hvis sportstaevne matcher en af de defineret i vores array
-    if (sportstaevne.includes(acf.sportstaevne)) {
-      // ny div for hver stævne
-      const staevneDiv = document.createElement('div');
+  fetch(domain)
+  // konvertere til JSON
+  .then(response => response.json())
+  .then(data => {
+    // Gem alle posts til filtrering
+    allStaevner = data;
+
+    data.forEach(post => {
+      // Hent ACF dataen
+      const acf = post.acf || {};
+      // Vis kun hvis sportstaevne matcher en af de defineret i vores array
+      if (sportstaevne.includes(acf.sportstaevne)) {
+        // ny div for hver stævne
+        const staevneDiv = document.createElement('div');
         // tilføjer klasse
         staevneDiv.classList.add('holdcard');
         staevneDiv.innerHTML = `
@@ -188,14 +200,71 @@ fetch(domain)
         staevner.appendChild(staevneDiv);
       }
     });
+
+    // skjul loader fordi data er hentet og smidt ind
+    loader.style.display = 'none';
   })
   .catch(error => {
     console.error("Fejl ved hentning af data:", error);
     staevner.innerHTML = "<p>Kunne ikke hente stævne-data.</p>";
   });
+
+  // Funktion til at vise filtrerede stævner baseret på dropdown
+  function renderFilteredStaevner(valgtSport) {
+    staevner.innerHTML = '';
+    allStaevner.forEach(post => {
+      const acf = post.acf || {};
+      // Vis kun hvis sportstaevne er i listen OG matcher valgt
+      if (
+        sportstaevne.includes(acf.sportstaevne) &&
+        (valgtSport === 'Alle' || acf.sportstaevne.includes(valgtSport))
+      ) {
+        const staevneDiv = document.createElement('div');
+        staevneDiv.classList.add('holdcard');
+        staevneDiv.innerHTML = `
+        <p><strong>${acf.titel || 'Kommer snart'}</strong></p>
+        <p><strong>Sport:</strong> ${acf.sportstaevne || 'Kommer snart'}</p>
+        <p><strong>Pris:</strong> ${acf.pris || 'Kommer snart'}</p>
+        <p><strong>Alder:</strong> ${acf.alder || 'Kommer snart'}</p>
+        `;
+        staevner.appendChild(staevneDiv);
+      }
+    });
   }
 
+  // Eventlistener for dropdown-filtrering
+  if (staevneFilter) {
+    staevneFilter.addEventListener('change', (e) => {
+      const valgt = e.target.value;
+      renderFilteredStaevner(valgt);
+    });
+  }
+}
 
+
+// Kontingent side
+// Henter URL-parametrene fra sideadresse
+// URLSearchParams bruges til at hente query-parametre fra URLen som gør det muligt at finde den specifikke post, som vises baseret på det ID et post har.
+const URLparams = new URLSearchParams(window.location.search);
+// Finder værdien af id'et fra URLen
+const postId = URLparams.get('id');
+// Henter en specifik post fra Wordpress REST API baseret på ID
+fetch(`https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts/${postId}`)
+.then(response => response.json())
+.then(post => {
+  const acf = post.acf || {};
+  const kontingent = document.getElementById('kontingent');
+
+  kontingent.innerHTML = `
+  <h1>${acf.titel || 'Ingen titel'}</h1>
+  <p>Alder: ${acf.alder ||'Ingen aldersinfo'}</p>
+  <p>Pris: ${acf.pris || 'Ingen beskrivelse'}</p>
+  <p>${acf.information || 'Ingen beskrivelse'}</p>
+  `;
+})
+.catch(err => {
+  console.error('Fejl:', err);
+});
 
 
 
