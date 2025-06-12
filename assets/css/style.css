@@ -156,6 +156,11 @@ iframe{
 .dekstopMenu ul li a.active::after {
   transform: scaleX(1);
 }
+.dekstopMenu ul li:last-child a:hover,
+.dekstopMenu ul li:last-child a:focus {
+opacity: 0.8;
+transition: opacity 0.1s ease-in-out;
+}
 header {
   display: flex;
   align-items: center;
@@ -640,8 +645,12 @@ footer {
   }
 
   #svoemhero img {
-    grid-column: 1 / 13;
+    grid-column: 3 / 11;
     grid-row: 2;
+    width: 100%;
+    height: auto;
+    margin: 0;
+
   }
 
   #svoemintro h2 {
@@ -747,7 +756,7 @@ footer {
   }
 
   #AWherosection img {
-    grid-column: 1 / 13;
+    grid-column: 3 / 11;
     grid-row: 2;
     margin: 0;
   }
@@ -854,10 +863,10 @@ footer {
   
 
   #loebhero img {
-    grid-column: 1 / 13;
+    grid-column: 3 / 11;
     grid-row: 2;
     width: 100%;
-    height: 820px;
+    height: 500px;
     object-fit: cover;
   }
 
