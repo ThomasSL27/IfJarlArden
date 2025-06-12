@@ -36,7 +36,7 @@ fetch(domain)
   .then(response => response.json())
   .then(data => {
     // Logger det hele i konsollen
-    console.log(data);
+    
     // Definerer en funktion som viser medlemmer baseret på deres udvalg
     // Funktion der håndterer indsættelse af medlemmer i den korrekte div
     // udvalgNavn er fx "bestyrelse" og containerSelector fx ".bestyrelsen"
