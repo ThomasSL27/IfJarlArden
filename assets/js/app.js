@@ -146,7 +146,7 @@ fetch(domain)
       const holdDiv = document.createElement('div');
       // class for styling
       holdDiv.classList.add('holdcard');
-      // Indsæt HTML indhold i div'en (uden modal-relateret kode)
+      // Indsæt HTML indhold i div'en
       holdDiv.innerHTML = `
       <h3>${acf.titel || 'Kommer snart'}</h3>
       <p>Alder: ${acf.alder || 'Kommer snart'}</p>
