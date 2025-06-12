@@ -502,9 +502,12 @@ footer {
   }
 
   .hero {
-    width: 100%;
+    width: 100vw;
     height: 60vh;
     padding-top: 1rem;
+  }
+  header h1{
+    display: none;
   }
 
   .burger {
@@ -521,7 +524,7 @@ footer {
     padding: 0;
     flex-direction: row;
   }
-
+  
   .dekstopMenu ul li {
     list-style-type: none;
 
