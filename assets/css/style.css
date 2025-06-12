@@ -5,6 +5,7 @@
   font-family: "Montserrat", sans-serif;
   background-color: var(--secondary-color);
   color: var(--text-color);
+  line-height: 150%;
 }
 
 body {
@@ -745,13 +746,13 @@ footer {
     font-size: 3rem;
   }
 
-  #AWherosection figure {
+  #AWherosection img {
     grid-column: 1 / 13;
     grid-row: 2;
     margin: 0;
   }
 
-  #AWherosection figure img {
+  #AWherosection img {
     width: 100%;
     height: auto;
   }
