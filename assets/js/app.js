@@ -98,7 +98,7 @@ function toggleDetails() {
 //holder den åben når wv er 1440px+
 window.addEventListener('DOMContentLoaded', toggleDetails);
 
-//hvis nu mark skulle ændre størelsen på skærmen
+//hvis nu mark skulle ændre størelsen på skærmen(all times)(alle tiders på dansk)
 window.addEventListener('resize', toggleDetails);
 
 
