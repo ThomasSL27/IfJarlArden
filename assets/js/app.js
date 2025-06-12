@@ -100,9 +100,6 @@ window.addEventListener('DOMContentLoaded', toggleDetails);
 
 //hvis nu mark skulle ændre størelsen på skærmen(all times)(alle tiders på dansk)
 window.addEventListener('resize', toggleDetails);
-
-
-
 // Hold
 const hold = document.querySelector('.hold');
 if (hold){
@@ -154,7 +151,7 @@ fetch(domain)
       <h3>${acf.titel || 'Kommer snart'}</h3>
       <p>Alder: ${acf.alder || 'Kommer snart'}</p>
       <p>${acf.information || 'Ingen beskrivelse'}</p>
-     <a class="knap1" href="kontingent.html?id=${post.id}">Tilmeld dig</a>
+     <a class="knap1" href="kontingent.html?id=${post.id}">Udforsk holdet</a>
       `;
       // Tilføj diven til .hold
       hold.appendChild(holdDiv);
@@ -170,8 +167,6 @@ sportFilter.addEventListener('change', (e) => {
   renderHold(valgt);
 });
 }
-
-
 // Stævner
 // Find HTML element .staevner
 const staevner = document.querySelector('.staevner');
@@ -298,7 +293,7 @@ fetch(`https://mmd.tobiasvraa.dk/wp-json/wp/v2/posts/${postId}?_embed&acf_format
     <p>Pris: ${acf.pris || 'Pris ikke angivet'}</p>
     <p>Sæson: ${acf.saeson || 'Sæson ikke angivet'}</p>
     <p>${acf.information || 'Ingen beskrivelse'}</p>
-    <button class="tilmeldknap"><a href="#">Tilmeld</a></button>
+    <button class="tilmeldknap"><a href="#">Tilmeld hold</a></button>
   `;
 })
 .catch(err => {
